@@ -1,0 +1,72 @@
+definitions:
+  httputils.BaseResponse:
+    properties:
+      msg:
+        type: string
+    type: object
+  user.Model:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+paths:
+  /user:
+    post:
+      consumes:
+      - application/json
+      description: insert user
+      parameters:
+      - description: user
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/user.Model'
+      produces:
+      - application/json
+      responses:
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputils.BaseResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputils.BaseResponse'
+      summary: Insert a user
+      tags:
+      - user
+  /user/{id}:
+    get:
+      consumes:
+      - application/json
+      description: get user by ID
+      produces:
+      - application/json
+      responses:
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputils.BaseResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/httputils.BaseResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputils.BaseResponse'
+      summary: Show a user
+      tags:
+      - user
+swagger: "2.0"
