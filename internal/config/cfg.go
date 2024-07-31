@@ -25,7 +25,7 @@ func Load() (*Config, error) {
 			User:     GetEnv("POSTGRES_USER", "postgres"),
 			Password: GetEnv("POSTGRES_PASSWORD", "postgres"),
 			Port:     GetEnv("POSTGRES_PORT", "5432"),
-			DbName:   GetEnv("POSTGRES_DBNAME", "postgres"),
+			DbName:   GetEnv("POSTGRES_DB", "postgres"),
 			SSLMode:  GetEnv("POSTGRES_SSLMODE", "disable"),
 			TimeZone: GetEnv("POSTGRES_TIMEZONE", "UTC"),
 		},

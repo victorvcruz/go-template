@@ -24,9 +24,6 @@ func TestLoad(t *testing.T) {
 				t.Setenv("POSTGRES_DB", "testdb")
 				t.Setenv("POSTGRES_SLLMODE", "disable")
 				t.Setenv("POSTGRES_TIMEZONE", "UTC")
-
-				t.Setenv("BATCH_SIZE", "100")
-				t.Setenv("WORKERS", "4")
 			},
 			want: &Config{
 				Database: Database{
